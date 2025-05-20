@@ -34,10 +34,10 @@
         }
         @keyframes shrink {
             from{
-                transform: scale(1);
+                opacity: 1;
             }
             to{
-                transform: scale(0);
+                opacity: 0;
             }
         }
         h3{
@@ -60,6 +60,7 @@
         const audioContext = new AudioContext();
         const sound = new BeatBeat(audioContext, "masayume.mp3");
         let scoreElem = document.getElementById("score");
+        let songDuration = 0;
 
         const createCircle = () => {
             let CircleElem = document.createElement("div")
@@ -79,6 +80,10 @@
             document.body.appendChild(CircleElem);
             
         }
+
+        const notifySongEnd = () => {
+            console.log("The song has ended");
+        }
         let startButton = document.getElementById("startButton");
         startButton.addEventListener("click", async function startGameOnce(e) {
             await audioContext.resume();
@@ -87,6 +92,8 @@
                 
                 createCircle();
             });
+            songDuration = sound.duration;
+            setTimeout(notifySongEnd, sound.buffer.duration * 1000)
             startButton.removeEventListener("click", startGameOnce);
         })
         document.addEventListener("click", (e) => {
