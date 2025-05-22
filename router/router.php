@@ -1,14 +1,16 @@
 <?php
  require_once '../app/controllers/scoreController.php';
  require_once '../app/controllers/authController.php';
- session_start();
+ require_once '../app/controllers/DashboardController.php';
+//  session_start();
  $scoreController = new ScoreController();
  $authController = new AuthController();
+ $dashboardController = new DashboardController();
  $action = $_GET['action'] ?? 'index';
 if(isset($_SESSION["id"])){
     switch ($action) {
     case 'index':
-        header("Location: ../views/gameStart.php");
+        $dashboardController->index();
         break;
     case 'create':
         echo "coming soon";

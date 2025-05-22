@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../models/User.php';
-require __DIR__ . '/../../config/conn.php';
+require_once __DIR__ . '/../../config/conn.php';
 
 class UserRepository {
    
