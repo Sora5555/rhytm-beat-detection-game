@@ -58,7 +58,7 @@
         let continueScore = false;
         let score = 0;
         const audioContext = new AudioContext();
-        const sound = new BeatBeat(audioContext, "../masayume.mp3");
+        const sound = new BeatBeat(audioContext, "../public/<?php echo $songParam->song_name?>");
         let scoreElem = document.getElementById("score");
         let songDuration = 0;
 
@@ -84,7 +84,7 @@
         const submitScore = () => {
             let form = document.createElement("form");
             form.setAttribute("method", "post");
-            form.setAttribute("action", "./router/router.php?action=update");
+            form.setAttribute("action", "../router/router.php");
             form.setAttribute("style", `position:absolute;`);
             form.setAttribute('id', "formScore");
 
@@ -92,8 +92,24 @@
             inputScore.setAttribute("name", "score");
             inputScore.setAttribute("type", "hidden");
             inputScore.setAttribute("value", score);
+            
+            let inputRoute = document.createElement("input");
+            inputRoute.setAttribute("name", "route");
+            inputRoute.setAttribute("type", "hidden");
+            inputRoute.setAttribute("value", "gameScore");
+            
+            let inputUserId = document.createElement("input");
+            inputUserId.setAttribute("name", "user_id");
+            inputUserId.setAttribute("type", "hidden");
+            inputUserId.setAttribute("value", "<?php echo $_SESSION["id"]?>");
+            
+            let inputSongId = document.createElement("input");
+            inputSongId.setAttribute("name", "song_id");
+            inputSongId.setAttribute("type", "hidden");
+            inputSongId.setAttribute("value", "<?php echo $_GET["id"]?>");
 
-            form.append(inputScore);
+
+            form.append(inputScore, inputRoute, inputUserId, inputSongId);
             document.body.appendChild(form);
             let formElem = document.getElementById("formScore");
             formElem.submit();

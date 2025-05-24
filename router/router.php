@@ -1,14 +1,20 @@
 <?php
  require_once '../app/controllers/scoreController.php';
  require_once '../app/controllers/authController.php';
- require_once '../app/controllers/DashboardController.php';
+ require_once '../app/controllers/dashboardController.php';
+ require_once '../app/controllers/gameController.php';
 //  session_start();
  $scoreController = new ScoreController();
  $authController = new AuthController();
  $dashboardController = new DashboardController();
+ $gameController = new GameController();
  $action = $_GET['action'] ?? 'index';
 if(isset($_SESSION["id"])){
+    if(empty($_POST["route"])){
     switch ($action) {
+    case "gameStart":
+        $gameController->index($_GET["id"]);
+        break;
     case 'index':
         $dashboardController->index();
         break;
@@ -30,6 +36,16 @@ if(isset($_SESSION["id"])){
     default:
         echo "404 Not Found";
     break;
+    }
+    } else {
+        switch ($_POST["route"]){
+            case "songUpload":
+                $dashboardController->songUpload();
+                break;
+            case "gameScore":
+                $scoreController->index();
+                break;
+        }
     }
 
 } else {
