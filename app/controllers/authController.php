@@ -31,7 +31,7 @@ class AuthController{
                 
                 if(password_verify($_POST["password"], $userOne->password)){
                     $_SESSION["id"] = $userOne->id;
-                    header("Location: ../router/router.php");
+                     header('Location: ../router/router.php');
                 } else {
                      header('Location: ' . $_SERVER['HTTP_REFERER']);
                 }
@@ -57,5 +57,10 @@ class AuthController{
             header('Location: ' . $_SERVER['HTTP_REFERER']);
             exit;
         }
+    }
+    public function logout(){
+        session_unset();
+        session_destroy();
+        header("Location: ../router/router.php?action=login");
     }
 }

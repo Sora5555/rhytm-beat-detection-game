@@ -44,6 +44,9 @@ if(empty($_POST["route"])){
             case "auth":
                 $authController->login();
                 break;
+            case "logout":
+                $authController->logout();
+                break;
             
         }
     }
