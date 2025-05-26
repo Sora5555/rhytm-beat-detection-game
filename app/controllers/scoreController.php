@@ -14,9 +14,13 @@ require_once __DIR__ . "/../repositories/ScoreRepository.php";
         $this->scoreModel->score = $_POST["score"];
         $checkExist = $this->scoreRepo->getUserScore($this->scoreModel->song_id, $this->scoreModel->user_id);
         if(empty($checkExist)){
-             $this->scoreRepo->addScore($this->scoreModel);
+             $checkExist = $this->scoreRepo->addScore($this->scoreModel);
+        } else {
+            $this->scoreRepo->updateScore($this->scoreModel->score, $this->scoreModel->song_id, $this->scoreModel->user_id);
+            
         }
         $score = $this->scoreRepo->getScore($_POST["song_id"]);
+        $checkPosition = array_search($checkExist, $score);
         require "../views/gameScore.php";
         
     }

@@ -15,7 +15,28 @@
             </tr>
         </thead>
         <tbody>
+            <?php foreach ($score as $key => $value) {
+                # code...
+                ?>
+                <tr>
+                    <td><?= $key + 1; ?></td>
+                    <td><?= $value["username"]; ?></td>
+                    <td><?= $value["score"]; ?></td>
+                </tr>
+                <?php } ?>
         </tbody>
+    </table>
+    <table>
+        <tr>
+            <th>Rank</th>
+            <th>Username</th>
+            <th>Score</th>
+        </tr>
+        <tr>
+            <td><?= $checkPosition + 1;  ?></td>
+            <td><?= $checkExist["username"];  ?></td>
+            <td><?= $checkExist["score"];  ?></td>
+        </tr>
     </table>
 </body>
 </html>

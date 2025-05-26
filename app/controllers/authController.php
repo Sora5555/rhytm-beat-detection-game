@@ -10,10 +10,19 @@ class AuthController{
         $this->userModel = new User();
     }
     public function loginView(){
-        header("Location: ../views/auth/login.php");
+        if(isset($_SESSION["id"])){
+            header("Location: ../router/router.php");
+         } else {
+             require "../views/auth/login.php";
+         }
     }
     public function registerView() {
-        header("Location: ../views/auth/register.php");
+         if(isset($_SESSION["id"])){
+            header("Location: ../router/router.php");
+         } else {
+              require "../views/auth/register.php";
+         }
+       
     }
     public function login(){
             try {
@@ -22,7 +31,7 @@ class AuthController{
                 
                 if(password_verify($_POST["password"], $userOne->password)){
                     $_SESSION["id"] = $userOne->id;
-                    header("Location: ../index.php");
+                    header("Location: ../router/router.php");
                 } else {
                      header('Location: ' . $_SERVER['HTTP_REFERER']);
                 }
@@ -39,7 +48,7 @@ class AuthController{
 
             try {
                 $this->userRepo->addUser($this->userModel);
-                header("Location: ../index.php");
+                header("Location: ../router/router.php?action=login");
             } catch (\Throwable $th) {
                 //throw $th;
                 echo $th->getMessage();

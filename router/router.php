@@ -9,8 +9,7 @@
  $dashboardController = new DashboardController();
  $gameController = new GameController();
  $action = $_GET['action'] ?? 'index';
-if(isset($_SESSION["id"])){
-    if(empty($_POST["route"])){
+if(empty($_POST["route"])){
     switch ($action) {
     case "gameStart":
         $gameController->index($_GET["id"]);
@@ -18,24 +17,18 @@ if(isset($_SESSION["id"])){
     case 'index':
         $dashboardController->index();
         break;
-    case 'create':
-        echo "coming soon";
+    case "register":
+        $authController->registerView();
         break;
-    case 'store':
-        echo "coming soon";
+    case "store":
+        $authController->store();
         break;
-    case 'edit':
-        echo "coming soon";
-        break;
-    case 'update':
-        $scoreController->update();
-        break;
-    case 'delete':
-        echo "coming soon";
+    case "login":
+        $authController->loginView();
         break;
     default:
         echo "404 Not Found";
-    break;
+        break;
     }
     } else {
         switch ($_POST["route"]){
@@ -45,36 +38,12 @@ if(isset($_SESSION["id"])){
             case "gameScore":
                 $scoreController->index();
                 break;
-        }
-    }
-
-} else {
-    if(empty($_POST["route"])){
-         switch ($action) {
-        
-       
-        case "register":
-            $authController->registerView();
-            break;
-        case "store":
-            $authController->store();
-            break;
-        case "game":
-            header("Location: ../views/gameStart.php");
-            break;
-        default:
-            $authController->loginView();
-            break;
-        }
-    } else {
-        switch ($_POST["route"]) {
-            case "registerStore":
+             case "registerStore":
                 $authController->store();
                 break;
             case "auth":
                 $authController->login();
                 break;
-            }
+            
+        }
     }
-        
-}

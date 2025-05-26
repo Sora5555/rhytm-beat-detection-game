@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    background: #7F55B1;
+    color: #FFE1E0;
+}
+a{
+    color: #FFE1E0;
+}

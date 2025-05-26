@@ -12,7 +12,7 @@ class DashboardController {
     }
     public function index(){
         if(!isset($_SESSION["id"])){
-            header('Location: ' . $_SERVER['HTTP_REFERER']);
+            header('Location: ../router/route.php?action=login');
             exit;
         }
         $songs = $this->songRepo->getAllSong();
