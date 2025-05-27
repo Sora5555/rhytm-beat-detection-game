@@ -98,4 +98,71 @@ nav{
 .nav-title {
     font-size: 2rem;
 }
+main {
+    margin-top: 2rem;
+}
+.dashboard-upload {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.dashboard-upload > form > input {
+    display: none;
+}
+.dashboard-upload > form {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 20%;
+}
+.dashboard-upload > h1 {
+    text-align: center;
+}
+.dashboard-upload > form > .buttonSubmit {
+    width: 40%;
+}
+input[type="file"] {
+  display: none;
+}
 
+#songLabel {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background: #EAEAEA;
+    border-radius: 7px;
+    color: #A379C9;
+}
+.grid-song{
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    grid-auto-flow: column dense;
+}
+.song-card {
+    width: 100%;
+    background: #EAEAEA;
+    border-radius: 10px;
+    padding-block: 1.5rem;
+    padding-inline: 2rem;
+    text-align: center;
+
+}
+
+.play-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 2rem;
+    padding-block: 1.5rem;
+}
+.play-button > a{
+    color: #A379C9;
+    text-decoration: none;
+}

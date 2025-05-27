@@ -31,6 +31,7 @@ class AuthController{
                 
                 if(password_verify($_POST["password"], $userOne->password)){
                     $_SESSION["id"] = $userOne->id;
+                    $_SESSION["username"] = $userOne->username;
                      header('Location: ../router/router.php');
                 } else {
                      header('Location: ' . $_SERVER['HTTP_REFERER']);
