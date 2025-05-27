@@ -59,6 +59,7 @@ input{
 }
 .buttonLogout{
     width: 70%;
+    background: #c97979;
 }
 .formLogout{
     width: 10%;
@@ -143,6 +144,7 @@ input[type="file"] {
     align-items: center;
     gap: 2rem;
     grid-auto-flow: column dense;
+    margin-block: 2rem;
 }
 .song-card {
     width: 100%;
@@ -165,4 +167,90 @@ input[type="file"] {
 .play-button > a{
     color: #A379C9;
     text-decoration: none;
+}
+.circle{
+    width: 100px;
+    height: 100px;
+    background: #A379C9;
+    border-radius: 100%;
+}
+.game-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 80vh;
+    position: relative;
+}
+/* #startButton {
+    position:absolute;
+} */
+@keyframes shrink {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+#score{
+    position: absolute;
+    top: 10vh;
+    font-size: 3rem;
+}
+.animate{
+    animation: shrink 2s ease-in;
+}
+
+.table-container {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    position: relative;
+    margin-top: 2rem;
+}
+.table-container > table{
+    color: #EAEAEA;
+    width: 80%;
+    border-collapse: collapse;
+    margin-inline: auto;
+}
+.leaderboard-thead{
+    background: #A379C9;
+}
+.leaderboard-thead > tr > th:nth-child(1){
+    padding-block: 1.2rem;
+    border-radius: 10px 0px 0px 10px;
+}
+.leaderboard-thead > tr > th:nth-child(3){
+    padding-block: 1.2rem;
+    border-radius: 0px 10px 10px 0px;
+}
+.table-container > table > tbody {
+    color: #A379C9;
+    text-align: center;
+}
+.table-container > table > tbody > tr > td{
+     padding-block: 1rem;
+}
+.result-table {
+    border-collapse: collapse;
+    position: fixed;
+    bottom: 0;
+    left: 10%;
+    text-align: center;
+    width: 80%;
+    margin-inline: auto;
+    background: #A379C9;
+    color: #EAEAEA;
+    border-radius: 10px;
+}
+.result-table > tbody > tr > td, th{
+    padding-block: 1.2rem;
+}
+.leaderboard-header{
+    margin-block: 2rem;
 }

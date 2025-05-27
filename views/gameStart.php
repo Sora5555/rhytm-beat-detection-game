@@ -1,57 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<?php
+ include("includes/header.php"); 
+
+?>
 
 <body>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body{
-            background: #ffff99;
-        }
-        .circle{
-            width: 100px;
-            height: 100px;
-            background: blue;
-            border-radius: 100%;
-        }
-        body{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
-        }
-        #startButton {
-            position:absolute;
-        }
-        @keyframes shrink {
-            from{
-                opacity: 1;
-            }
-            to{
-                opacity: 0;
-            }
-        }
-        h3{
-            position: absolute;
-            top: 12px;
-            color: black;
-            font-size: 3rem;
-        }
-        .animate{
-            animation: shrink 2s ease-in;
-        }
-    </style>
-    <h3 id="score">0</h3>
-    <div class="circle initialCircle" id="startButton"></div>
+   <?php include("includes/navigation.php"); ?>
+    <div class="game-body" id="game-body">
+        <h3 id="score">Press to start!</h3>
+        <div class="circle initialCircle" id="startButton"></div>
+    </div>
     
     <script type="module">
         import BeatBeat from "https://cdn.skypack.dev/beat-beat-js";
@@ -60,12 +19,14 @@
         const audioContext = new AudioContext();
         const sound = new BeatBeat(audioContext, "../public/<?php echo $songParam->song_name?>");
         let scoreElem = document.getElementById("score");
+        let gameBody = document.getElementById("game-body").getBoundingClientRect();
         let songDuration = 0;
 
         const createCircle = () => {
             let CircleElem = document.createElement("div")
-            let viewportWidth = window.innerWidth;
-            let viewportHeight =    window.innerHeight;
+            let viewportWidth = gameBody.width;
+            let viewportHeight = gameBody.height;
+            console.log(viewportHeight, viewportWidth, window.innerHeight, window.innerWidth);
             
             let anotherCircle = document.querySelector(".circle");
             let positionX =  Math.floor(Math.random() * (viewportWidth - 100));
@@ -77,7 +38,7 @@
             CircleElem.remove();
             scoreElem.innerHTML = score;
         })
-            document.body.appendChild(CircleElem);
+            document.getElementById("game-body").appendChild(CircleElem);
             
         }
 

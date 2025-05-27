@@ -16,7 +16,7 @@ require_once __DIR__ . "/../repositories/ScoreRepository.php";
         if(empty($checkExist)){
              $checkExist = $this->scoreRepo->addScore($this->scoreModel);
         } else {
-            $this->scoreRepo->updateScore($this->scoreModel->score, $this->scoreModel->song_id, $this->scoreModel->user_id);
+            $checkExist = $this->scoreRepo->updateScore($this->scoreModel->score, $this->scoreModel->song_id, $this->scoreModel->user_id);
             
         }
         $score = $this->scoreRepo->getScore($_POST["song_id"]);

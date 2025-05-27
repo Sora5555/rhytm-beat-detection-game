@@ -26,6 +26,7 @@ class ScoreRepository{
     }
     public function updateScore($score, $song_id, $user_id){
         $query = $this->conn->prepare("UPDATE {$this->table_name} SET score = ? where user_id = ? AND song_id = ?");
-        return $query->execute([$score, $user_id, $song_id]);
+        $query->execute([$score, $user_id, $song_id]);
+        return $this->getUserScore($song_id, $user_id);
     }
 }
