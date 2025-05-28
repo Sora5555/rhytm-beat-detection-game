@@ -18,11 +18,8 @@ a, button{
     justify-content: center;
     align-items: center;
 }
-.auth-body{
-    overflow-y: hidden;
-}
 .auth-container {
-    height: 100vh;
+    margin-top: 2rem;
 }
 .card-auth{
     background: #EAEAEA;
@@ -77,6 +74,7 @@ input{
 .wave-decoration-left, .wave-decoration-right, .wave-decoration-nav {
     position: absolute;
     left: 0;
+    z-index: -1;
 }
 .wave-decoration-right{
     right: 0;
@@ -95,6 +93,12 @@ nav{
     padding-block: 1rem;
     background: white;
     padding-inline: 2rem;
+    align-items: center;
+}
+nav > a{
+    color: #43275C;
+    font-size: 1.2rem;
+    text-decoration: none;
 }
 .nav-title {
     font-size: 2rem;
@@ -140,11 +144,14 @@ input[type="file"] {
 .grid-song{
     width: 100%;
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    grid-auto-flow: column dense;
     margin-block: 2rem;
+    padding-inline: 2rem;
 }
 .song-card {
     width: 100%;

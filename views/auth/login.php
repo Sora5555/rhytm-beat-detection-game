@@ -18,6 +18,10 @@
                     <label for="password">Password</label>
                     <input type="password" name="password" id="password">
                 </div>
+                <div class="input-group">
+                    <label for="remember">Remember me</label>
+                    <input type="checkbox" name="remember" id="remember">
+                </div>
                 <button type="submit" class="buttonSubmit">Login</button>
             </form>
             <p class="login-link">Don't have an account?     <a class="login-href" href="../router/router.php?action=register">Register here!</a></p>

@@ -26,6 +26,9 @@ if(empty($_POST["route"])){
     case "login":
         $authController->loginView();
         break;
+    case "profile":
+        $authController->profile();
+        break;
     default:
         echo "404 Not Found";
         break;
@@ -46,6 +49,12 @@ if(empty($_POST["route"])){
                 break;
             case "logout":
                 $authController->logout();
+                break;
+            case "deleteSong":
+                $authController->deleteSong();
+                break;
+            case "updateProfile":
+                $authController->updateProfile();
                 break;
             
         }

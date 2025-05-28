@@ -48,7 +48,7 @@ class DashboardController {
         if (move_uploaded_file($_FILES["songFile"]["tmp_name"], $target_file)) {
             $this->songModel->songName = $_FILES["songFile"]["name"];
             $this->songModel->songPath = $target_dir;
-            $this->songRepo->addSong( $this->songModel );
+            $this->songRepo->addSong( $this->songModel, $_SESSION["id"] );
             header('Location: ' . $_SERVER['HTTP_REFERER']);
         } else {
             echo "Sorry, there was an error uploading your file.";
