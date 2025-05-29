@@ -15,13 +15,7 @@ class AuthController{
     public function loginView(){
         if(isset($_SESSION["id"])){
             header("Location: ../router/router.php");
-         }else if (isset($_COOKIE["username"])){
-            $userOne = $this->userRepo->getOneUser($_COOKIE["username"]);
-            $_SESSION["id"] = $userOne->id;
-            $_SESSION["username"] = $userOne->username;
-            header("Location: ../router/router.php");
-
-         } else {
+         }else {
              require "../views/auth/login.php";
          }
     }
@@ -36,6 +30,9 @@ class AuthController{
     public function login(){
             try {
                 $userOne = $this->userRepo->getOneUser($_POST["username"]);
+                if($_COOKIE["username"]){
+                    $userOne = $this->userRepo->getOneUser($_COOKIE["username"]);
+                }
                 
                 
                 if(password_verify($_POST["password"], $userOne->password)){
