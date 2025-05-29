@@ -1,5 +1,5 @@
 <nav>
-    <h1 class="nav-title">BEATGAME</h1>
+    <h1 class="nav-title">RHYTMLAB</h1>
     <a href="../router/router.php">Dashboard</a>
     <a href="../router/router.php?action=profile">Profile</a>
     <form action="" method="post" class="formLogout">

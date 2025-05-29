@@ -4,7 +4,7 @@
     <div class="auth-container">
         <img src="../static/wave 1.svg" alt="" class="wave-decoration-left">
         <img src="../static/wave 1.svg" alt="" class="wave-decoration-right">
-        <h1 class="game-title">BEATGAME</h1>
+        <h1 class="game-title">RHYTMLAB</h1>
         <div class="card-auth">
             <h1 class="login-title">REGISTER</h1>
             <form action="../router/router.php" method="post">

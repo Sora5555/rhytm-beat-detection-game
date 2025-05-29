@@ -8,7 +8,7 @@
     <div class="auth-container">
          <img src="../static/wave 1.svg" alt="" class="wave-decoration-left">
         <img src="../static/wave 1.svg" alt="" class="wave-decoration-right">
-        <h1 class="game-title">BEATGAME</h1>
+        <h1 class="game-title">RHYTMLAB</h1>
         <div class="card-auth">
             
             <div class="login-form">
@@ -31,7 +31,7 @@
                         <input type="checkbox" name="remember" id="remember">
                     </div>
                        <?php } ?>
-                    <button type="submit" class="buttonSubmit" <?php echo  isset($_COOKIE["username"]) ? "style='margin-block: 2rem;'" : ""?>>Login</button>
+                    <button type="submit" class="buttonSubmit" <?php echo  isset($_COOKIE["username"]) ? "style='margin-block: 2rem; width: 20%;'" : ""?>>Login</button>
                 </form>
                 <?php if(!isset($_COOKIE["username"])) { ?>
                 <p class="login-link">Don't have an account?     <a class="login-href" href="../router/router.php?action=register">Register here!</a></p>
